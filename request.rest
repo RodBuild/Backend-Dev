@@ -1,0 +1,10 @@
+// LOCALHOST
+###
+GET http://localhost:3000/contacts
+###
+GET http://localhost:3000/contacts/62695959bf6456e2e1e36df5
+
+
+// PRODUCTION - HEROKU
+###
+GET https://backend-dev-1.herokuapp.com/.... MORE STUFF

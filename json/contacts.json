@@ -1,0 +1,23 @@
+{
+    "contact": {
+        "firstName": "Piero",
+        "lastName": "Mendoza",
+        "email": "pieromendoza@test.com",
+        "favoriteColor": "Blue",
+        "birthday": "12/30/1999"
+    },
+    "contact2": {
+        "firstName": "Pedro",
+        "lastName": "Lopez",
+        "email": "pedrolopez@test.com",
+        "favoriteColor": "Red",
+        "birthday": "04/30/1979"
+    },
+    "contact3": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@test.com",
+        "favoriteColor": "Pink",
+        "birthday": "01/01/1991"
+    }
+}
