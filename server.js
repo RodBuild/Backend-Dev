@@ -20,8 +20,8 @@ app
     next();
   })
   // .use('/', require('./routes'));
-  .use('/individual', require('./routes/index'))
-  .use('/contacts', require('./routes/contacts'));
+  // .use('/individual', require('./routes/index'))
+  .use('/', require('./routes/contacts'));
 
 // now connect to database...
 mongodb.initDb((err, mongodb) => {
