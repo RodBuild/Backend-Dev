@@ -8,6 +8,13 @@ GET http://localhost:3000/contacts/62695959bf6456e2e1e36df5
 ###
 GET http://localhost:3000/contacts/62695959bf6456e2e1e36df6
 
+
 // PRODUCTION - HEROKU
 ###
 GET https://backend-dev-2.herokuapp.com/contacts
+###
+GET https://backend-dev-2.herokuapp.com/contacts/62695959bf6456e2e1e36df4
+###
+GET https://backend-dev-2.herokuapp.com/contacts/62695959bf6456e2e1e36df5
+###
+GET https://backend-dev-2.herokuapp.com/contacts/62695959bf6456e2e1e36df6
