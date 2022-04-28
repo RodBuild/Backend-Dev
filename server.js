@@ -20,7 +20,7 @@ app
     next();
   })
   // .use('/', require('./routes'));
-  .use('/individual', require('./routes/index'))
+  .use('/', require('./routes/index'))
   .use('/', require('./routes/contacts'));
 
 // now connect to database...
