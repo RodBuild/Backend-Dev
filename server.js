@@ -24,12 +24,11 @@ app
   .use('/', require('./routes/contacts'));
 
 // now connect to database...
-mongodb.initDb((err, mongodb) => {
+mongodb.initDb((err) => {
   if (err) {
-      console.error(err);
-  }
-  else {
-      app.listen(port);
-      console.log(`Connect to DB and listen on port ${port}`);
+    console.error(err);
+  } else {
+    app.listen(port);
+    console.log(`Connect to DB and listen on port ${port}`);
   }
 });

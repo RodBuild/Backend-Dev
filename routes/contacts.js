@@ -1,5 +1,4 @@
 const express = require('express');
-const url1 = require('url');
 const router = express.Router();
 const controller = require('../controllers/contacts');
 
@@ -13,4 +12,3 @@ router.get('/contacts/:id', controller.getSingle);
 // router.get('/:id', contactsController.getSingle);
 
 module.exports = router;
-
