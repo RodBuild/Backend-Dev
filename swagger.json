@@ -5,7 +5,7 @@
     "title": "Contacts API",
     "description": "API to retrieve data from known contacts"
   },
-  "host": "localhost:3000",
+  "host": "https://backend-dev-2.herokuapp.com/",
   "basePath": "",
   "tags": [
     {
