@@ -6,7 +6,7 @@ const doc = {
     title: 'Contacts API', // by default: 'REST API'
     description: 'API to retrieve data from known contacts' // by default: ''
   },
-  host: 'localhost:3000', // by default: 'localhost:3000'
+  host: 'https://backend-dev-2.herokuapp.com/', // by default: 'localhost:3000'
   basePath: '', // by default: '/'
   schemes: ['https'], // by default: ['http']
   consumes: [], // by default: ['application/json']
