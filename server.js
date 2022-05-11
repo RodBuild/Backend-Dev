@@ -19,13 +19,13 @@ const app = express();
 app
   // .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   .use(cors())
-  .use(express.urlencoded({ extended: true }))
+  .use(express.urlencoded({ extended: true })) // TRASH - may not be needed
   .use(bodyParser.json())
   .use((req, res, next) => {
     // Change * to specific websites if so desired
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
-      'Access-Control-Allow-Methods',
+      'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
     );
     res.setHeader('Content-Type', 'application/json');
