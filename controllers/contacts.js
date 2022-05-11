@@ -36,55 +36,64 @@ const getSingle = async (req, res) => {
 
 const createContact = async (req, res) => {
   // console.log(req.body); // for debugging
-  const newContact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
-  };
-  const response = await mongodb.getDb().db().collection('contacts').insertOne(newContact);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error ||
-          `Something went wrong while attempting to create new contact ${newContact.firstName}`
-      );
+  try {
+    const newContact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+    const response = await mongodb.getDb().db().collection('contacts').insertOne(newContact);
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error ||
+            `Something went wrong while attempting to create new contact ${newContact.firstName}`
+        );
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
 const updateContact = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const newContact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
-  };
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection('contacts')
-    .replaceOne({ _id: userId }, newContact);
-  // console.log(response);
-  // if at least one modification happened
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error ||
-          `Something went wrong while attempting to update contact with id ${userId}`
-      );
+  try {
+    const userId = new ObjectId(req.params.id);
+    const newContact = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+    };
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('contacts')
+      .replaceOne({ _id: userId }, newContact);
+    // console.log(response);
+    // if at least one modification happened
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error ||
+            `Something went wrong while attempting to update contact with id ${userId}`
+        );
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
 const deleteContact = async (req, res) => {
+  try {
   const userId = new ObjectId(req.params.id);
   const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
   console.log(response);
@@ -97,6 +106,9 @@ const deleteContact = async (req, res) => {
         response.error ||
           `Something went wrong while attempting to delete contact with id ${userId}`
       );
+  }
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
