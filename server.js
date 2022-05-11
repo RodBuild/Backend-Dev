@@ -22,7 +22,14 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use((req, res, next) => {
+    // Change * to specific websites if so desired
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+    );
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     next();
   })
   .use('/', require('./routes'));

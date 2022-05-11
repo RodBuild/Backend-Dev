@@ -1,7 +1,11 @@
 // no need to define them lol getJoke
 const getJoke = (req, res) => {
-  const data = 'How did the telephone proposse to his girlfriend? Gave her a ring..';
-  res.status(200).send(data);
+  try {
+    const data = 'How did the telephone proposse to his girlfriend? Gave her a ring..';
+    res.status(200).send(data);
+  } catch (err) {
+    res.status(500).send('Joke not working?');
+  }
 };
 const getPerson = (req, res) => {
   const data = 'Piero Mendoza';
