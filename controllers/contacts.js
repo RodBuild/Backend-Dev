@@ -94,19 +94,23 @@ const updateContact = async (req, res) => {
 
 const deleteContact = async (req, res) => {
   try {
-  const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
-  console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error ||
-          `Something went wrong while attempting to delete contact with id ${userId}`
-      );
-  }
+    const userId = new ObjectId(req.params.id);
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('contacts')
+      .remove({ _id: userId }, true);
+    console.log(response);
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res
+        .status(500)
+        .json(
+          response.error ||
+            `Something went wrong while attempting to delete contact with id ${userId}`
+        );
+    }
   } catch (err) {
     res.status(500).json(err);
   }
